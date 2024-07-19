@@ -44,9 +44,10 @@ export function CoinFormPage() {
   useEffect(() => {
     async function loadCoin() {
       if(params.id) {
-        const {data: {name, description}} = await getCoin(params.id)
+        const {data: {name, description, image}} = await getCoin(params.id)
         setValue('name', name);
         setValue('description', description);
+        setValue('image', image);
       }
     }
     loadCoin();
@@ -54,7 +55,7 @@ export function CoinFormPage() {
   }, [])
 
   return(
-      <div className='max-w-xl mx-auto'>
+      <div className='max-w-xl mx-auto my-3'>
 
         <form  onSubmit={onSubmit} >
           <input type="text" placeholder="Ingrese un nombre de moneda"           
@@ -62,6 +63,12 @@ export function CoinFormPage() {
           className='bg-zinc-700 p-3 rounded-lg block w-full mb-3'
           />
           {errors.name && <span>Este campo es requerido</span>}
+
+          <input type="text" placeholder="Ingrese url de la imagen"
+          {...register("image", {required: false})}              
+          className='bg-zinc-700 p-3 rounded-lg block w-full mb-3'
+          />
+         
 
           <textarea rows="3" placeholder="Ingrese una nota"          
           {...register("description", {required: true})}

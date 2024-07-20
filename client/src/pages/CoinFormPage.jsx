@@ -44,9 +44,10 @@ export function CoinFormPage() {
   useEffect(() => {
     async function loadCoin() {
       if(params.id) {
-        const {data: {name, description, image}} = await getCoin(params.id)
+        const {data: {name, description, webSite, image}} = await getCoin(params.id)
         setValue('name', name);
         setValue('description', description);
+        setValue('webSite', webSite);
         setValue('image', image);
       }
     }
@@ -69,6 +70,10 @@ export function CoinFormPage() {
           className='bg-zinc-700 p-3 rounded-lg block w-full mb-3'
           />
          
+         <input type="text" placeholder="Ingrese url del Sitio Web"
+          {...register("webSite", {required: false})}              
+          className='bg-zinc-700 p-3 rounded-lg block w-full mb-3'
+          />
 
           <textarea rows="3" placeholder="Ingrese una nota"          
           {...register("description", {required: true})}

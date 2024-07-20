@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { CoinPage } from "./pages/CoinsPage"
+import { AdministrationPage } from './pages/AdministrationsPage'
 import { Index } from './pages/Index'
 import { CoinFormPage } from './pages/CoinFormPage'
 import { Navigation } from './components/Navigation'
@@ -16,6 +17,7 @@ function App() {
           <Route path='/Coins' element={<CoinPage/>} />
           <Route path='/Coins-create' element={<CoinFormPage/>} />
           <Route path='/Coins/:id' element={<CoinFormPage/>} />
+          <Route path='/administracion' element={<AdministrationPage/>} />
         </Routes>
         <Toaster />
       </div>

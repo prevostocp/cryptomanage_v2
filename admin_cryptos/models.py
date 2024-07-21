@@ -40,7 +40,7 @@ class Stanking(models.Model):
     description = models.TextField(blank=True, verbose_name="Description")
     image = models.CharField(max_length=200, blank=True)
     webSite = models.CharField(max_length=200, blank=True)
-    blockchain = models.ForeignKey(Blockchain, on_delete=models.CASCADE, null=False, blank=False)
+    blockchain = models.ForeignKey(Blockchain, on_delete=models.CASCADE, null=False, blank=False, default=1)
     type = models.SmallIntegerField(default=1)
 
     def __str__(self):

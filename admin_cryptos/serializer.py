@@ -1,14 +1,19 @@
 from rest_framework import serializers
-from .models import Coin, Stanking
+from .models import Coin, Stanking, StakingDetail
 
 
-class CoinSerilizer(serializers.ModelSerializer):
+class CoinSerializer(serializers.ModelSerializer):
     class Meta:
         model = Coin
         # fields = ('id', 'name', 'description', 'status')
         fields = '__all__'
 
-class StakingSerializar(serializers.ModelSerializer):
+class StakingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Stanking
+        fields = '__all__'
+
+class StakingDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StakingDetail
         fields = '__all__'

@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { AdministrationCard } from './AdministrationCard';
 
 
 export function AdministrationsList() {
-    
+
     const [adminitration, setAdministration] = useState([{
         id: 1,
         name: 'Coins',
@@ -18,24 +18,14 @@ export function AdministrationsList() {
         url: '/blockchains/'
     }]);
 
-    useEffect(() => {
-        // async function loadAdministrations() {           
-        //     setAdministration(listAdminitrations)
-        // }        
-        // loadAdministrations()
-
-        //setAdministration(listAdminitrations)
-        
-    }, []);
-   
     return (
         <div>
-            
-            <div className='grid grid-cols-6 gap-3 p-3'>           
-                { 
-                    adminitration.map( administration => (                        
+
+            <div className='grid grid-cols-6 gap-3 p-3'>
+                {
+                    adminitration.map(administration => (
                         <AdministrationCard key={administration.id} administration={administration} />
-                )) }
+                    ))}
             </div>
         </div>
     )

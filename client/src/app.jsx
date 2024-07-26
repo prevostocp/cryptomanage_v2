@@ -3,6 +3,8 @@ import { CoinPage } from "./pages/CoinsPage"
 import { AdministrationPage } from './pages/AdministrationsPage'
 import { InvestPage } from './pages/InvestsPage'
 import { Index } from './pages/Index'
+import { StakingsPage } from './pages/StakingsPage'
+import { StakingFormPage } from './pages/StakingFormPage'
 import { CoinFormPage } from './pages/CoinFormPage'
 import { Navigation } from './components/Navigation'
 import { Toaster } from 'react-hot-toast'
@@ -20,6 +22,9 @@ function App() {
           <Route path='/Coins/:id' element={<CoinFormPage />} />
           <Route path='/administracion' element={<AdministrationPage />} />
           <Route path='/inversiones' element={<InvestPage />} />
+          <Route path='/Stakings' element={<StakingsPage />} />
+          <Route path='/Stakings-create' element={<StakingFormPage />} />
+          <Route path='/Stakings/:id' element={<StakingFormPage />} />
         </Routes>
         <Toaster />
       </div>

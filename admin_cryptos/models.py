@@ -1,8 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
-
 class Coin(models.Model):
     name = models.CharField(max_length=200, null=False, unique=True, verbose_name="Name")
     description = models.TextField(blank=True)
@@ -42,6 +39,7 @@ class Stanking(models.Model):
     webSite = models.CharField(max_length=200, blank=True)
     blockchain = models.ForeignKey(Blockchain, on_delete=models.CASCADE, null=False, blank=False, default=1)
     type = models.SmallIntegerField(default=1)
+    coin = models.ForeignKey(Coin, on_delete=models.CASCADE, null=False, blank=False, default=1)
 
     def __str__(self):
         return self.name
@@ -53,7 +51,7 @@ class Stanking(models.Model):
         ordering = ["id"]
 
 class StakingDetail(models.Model):
-    staking = models.ForeignKey(Stanking, on_delete=models.CASCADE, null=False, blank=False, related_name="items" ) # model_set
+    staking = models.ForeignKey(Stanking, on_delete=models.CASCADE, null=True, blank=True, related_name="items" ) # model_set
     quantity = models.FloatField(default=0)
     price = models.FloatField(default=0)
 

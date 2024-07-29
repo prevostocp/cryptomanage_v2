@@ -1,11 +1,13 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { CoinPage } from "./pages/CoinsPage"
+import BlockchainPage from "./pages/BlockchainPage"
 import { AdministrationPage } from './pages/AdministrationsPage'
 import { InvestPage } from './pages/InvestsPage'
 import { Index } from './pages/Index'
 import { StakingsPage } from './pages/StakingsPage'
 import { StakingFormPage } from './pages/StakingFormPage'
 import { CoinFormPage } from './pages/CoinFormPage'
+import BlockchainFormPage from './pages/BlockchainFormPage'
 import { Navigation } from './components/Navigation'
 import { Toaster } from 'react-hot-toast'
 
@@ -25,6 +27,9 @@ function App() {
           <Route path='/Stakings' element={<StakingsPage />} />
           <Route path='/Stakings-create' element={<StakingFormPage />} />
           <Route path='/Stakings/:id' element={<StakingFormPage />} />
+          <Route path='/Blockchains' element={<BlockchainPage />} />
+          <Route path='/Blockchains-create' element={<BlockchainFormPage />} />
+          <Route path='/Blockchains/:id' element={<BlockchainFormPage />} />
         </Routes>
         <Toaster />
       </div>

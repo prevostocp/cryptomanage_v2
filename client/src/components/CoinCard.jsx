@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 
-export function CoinCard({ coin }) {
+const CoinCard = ({ coin }) => {
+
+    //export function CoinCard({ coin }) {
 
     const navigate = useNavigate();
 
@@ -22,17 +24,21 @@ export function CoinCard({ coin }) {
                         <img className="rounded-lg m-auto my-4" src={coin.image} alt={coin.image} />
                     </div>
 
-                    <p className='text-slate-400 text-center' >{coin.description}</p>
-                </div>
+                    <p className='text-slate-400 text-center' >{
 
+                        coin.description.length <= 100 ? coin.description : coin.description.substring(0, 100) + '...'
+
+                    }</p>
+                </div>
 
                 <div className="relative inset-0 flex">
-                    <a className='bg-sky-600  m-auto my-4' target="_blank" href={coin.webSite}>WebSite</a>
+                    <a className='p-1 bg-sky-600  m-auto my-4' target="_blank" href={coin.webSite}>WebSite</a>
                 </div>
 
-
             </div>
-
         </>
     )
 }
+
+
+export default CoinCard;

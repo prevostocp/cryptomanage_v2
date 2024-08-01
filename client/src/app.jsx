@@ -24,7 +24,7 @@ function App() {
           <Route path='/Coins/:id' element={<CoinFormPage />} />
           <Route path='/administracion' element={<AdministrationPage />} />
           <Route path='/inversiones' element={<InvestPage />} />
-          <Route path='/Stakings' element={<StakingsPage />} />
+          <Route path='/Stakings/:type' element={<StakingsPage />} />
           <Route path='/Stakings-create' element={<StakingFormPage />} />
           <Route path='/Stakings/:id' element={<StakingFormPage />} />
           <Route path='/Blockchains' element={<BlockchainPage />} />

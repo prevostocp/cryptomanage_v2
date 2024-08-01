@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { createStakings, deleteStakings, updateStakings, getStakings } from '../api/stakings.api';
+// import { createStakings, deleteStakings, updateStakings, getStakings } from '../api/stakings.api';
+import { createRegister, deleteRegister, updateRegister, getRegister } from '../api/entidades.api';
 import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 
@@ -19,7 +20,7 @@ export function StakingFormPage() {
     const onSubmit = handleSubmit(async (data) => {
 
         if (params.id) {
-            await updateStakings(params.id, data);
+            await updateRegister('stakings', params.id, data);
             toast.success('Staking Actualizado', {
                 position: 'bottom-right',
                 style: {
@@ -28,7 +29,7 @@ export function StakingFormPage() {
                 }
             });
         } else {
-            await createStakings(data);
+            await createRegister('stakings', data);
             toast.success('Se creó el nuevo staking', {
                 position: 'bottom-right',
                 style: {
@@ -44,7 +45,7 @@ export function StakingFormPage() {
     useEffect(() => {
         async function loadStaking() {
             if (params.id) {
-                const { data: { name, description, webSite, image } } = await getStakings(params.id)
+                const { data: { name, description, webSite, image } } = await getRegister('stakings', params.id)
                 setValue('name', name);
                 setValue('description', description);
                 setValue('webSite', webSite);
@@ -90,7 +91,7 @@ export function StakingFormPage() {
                 onClick={async () => {
                     const accepted = window.confirm("Confirma eliminación ?")
                     if (accepted) {
-                        await deleteStakings(params.id)
+                        await deleteRegister(params.id, 'stakings')
                         toast.success('Staking Eliminado', {
                             position: 'bottom-right',
                             style: {

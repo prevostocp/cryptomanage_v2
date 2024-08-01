@@ -10,7 +10,7 @@ export function StakingCard({ staking }) {
 
                 <div className='bg-zinc-700 hover:bg-zinc-600 my-4 rounded-lg'
                     onClick={() => {
-                        navigate(`/stakings/${staking.id}`)
+                        navigate(`/stakings/${staking.type}/${staking.id}`)
                     }}
                 >
                     <h1 className='font-bold uppercase text-center' >{staking.name}</h1>

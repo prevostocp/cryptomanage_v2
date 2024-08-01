@@ -19,6 +19,11 @@ class StakingAutoView(viewsets.ModelViewSet):
     serializer_class = StakingSerializer
     queryset = Stanking.objects.filter(type=2)
 
+class StakingDetailView(viewsets.ModelViewSet):
+    serializer_class = StakingDetailSerializer
+    queryset = StakingDetail.objects.all()
+
+
 # class StakingSumCant(viewsets.ModelViewSet):
 #     serializer_class = StakingSerializer
 #     stak = Stanking.objects.first()
@@ -26,8 +31,4 @@ class StakingAutoView(viewsets.ModelViewSet):
 
 #     # queryset = stak.items.aggregate(Sum('quantity'))
 #     queryset = stak.items.count()
-
-class StakingDetailView(viewsets.ModelViewSet):
-    serializer_class = StakingDetailSerializer
-    queryset = StakingDetail.objects.all()
 

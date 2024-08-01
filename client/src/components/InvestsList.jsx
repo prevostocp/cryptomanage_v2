@@ -8,13 +8,13 @@ export function InvestsList() {
         name: 'Staking Manual',
         description: 'Lista de Inversiones de Staking Manual',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT85CjZkitWclg09QiAmlkwXoAyNRYPWhdkCu2sCgaisR5gaEc_mC0-2xAqBNea3zLiT9I&usqp=CAU',
-        url: '/Stakings'
+        url: '/Stakings/1/'
     }, {
         id: 2,
         name: 'Staking Automático',
         description: 'Lista de Inversiones de Staking Autoático',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR302tvaJoWoLMiwMiZze7N2AjUDDSVMESPZBy-3yip9TfFb0CTwLz-dm6NMULIFP8Kxs&usqp=CAU',
-        url: '/Stakings'
+        url: '/Stakings/2/'
     }]);
 
     return (

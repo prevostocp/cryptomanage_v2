@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getAllCoins } from '../api/coins.api';
+import { getAllRegisters } from '../api/entidades.api';
 import CoinCard from './CoinCard';
 import { Link } from "react-router-dom"
 
@@ -9,7 +9,8 @@ export function CoinsList() {
 
     useEffect(() => {
         async function loadCoins() {
-            const res = await getAllCoins()
+            //const res = await getAllCoins()
+            const res = await getAllRegisters('coins')
             setCoins(res.data)
         }
         loadCoins()
@@ -23,7 +24,6 @@ export function CoinsList() {
                 </a>
             </div>
 
-
             <div className='grid grid-cols-6 gap-3'>
 
                 {coins.map(coin => (
@@ -31,8 +31,5 @@ export function CoinsList() {
                 ))}
             </div>
         </div>
-
-
-
     )
 }

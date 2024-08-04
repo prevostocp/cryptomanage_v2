@@ -22,8 +22,7 @@ export function StakingsList() {
                 res = await getAllRegisters('stakingsAuto')
             }
             setStakings(res.data)
-            console.log(res.data[0].type, 'datos')
-            setTipo(res.data[0].type);
+            setTipo(params.type);
         }
         loadStakings()
     }, []);

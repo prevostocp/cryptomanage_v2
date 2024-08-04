@@ -56,6 +56,7 @@ class StakingDetail(models.Model):
     quantity = models.FloatField(default=0)
     quantity_earn = models.FloatField(default=0)
     price = models.FloatField(default=0)
+    created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         db_table = "stakingDetails"

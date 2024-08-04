@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-// import { createStakings, deleteStakings, updateStakings, getStakings } from '../api/stakings.api';
 import { createRegister, deleteRegister, updateRegister, getRegister } from '../api/entidades.api';
 import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
@@ -10,7 +9,8 @@ export function StakingFormPage() {
     const { register,
         handleSubmit,
         formState: {
-            errors },
+            errors
+        },
         setValue
     } = useForm();
 
@@ -39,11 +39,12 @@ export function StakingFormPage() {
             })
         }
 
-        navigate('/stakings');
+        navigate(`/stakings/${params.type}`);
     })
 
     useEffect(() => {
         async function loadStaking() {
+
             if (params.id) {
                 const { data: { name, description, webSite, image } } = await getRegister('stakings', params.id)
                 setValue('name', name);
@@ -99,7 +100,7 @@ export function StakingFormPage() {
                                 color: '#fff'
                             }
                         })
-                        navigate('/stakings');
+                        navigate(`/stakings/${params.type}`);
                     }
                 }} >Delete</button>}
 

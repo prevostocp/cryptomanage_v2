@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 function StakingDetailTable() {
     const { details } = useParams();
+    const params = useParams();
     const aDetails = JSON.parse(decodeURIComponent(details));
-
     const [items, setItems] = useState(aDetails);
 
     function formatDate(dateString) {
@@ -17,10 +17,8 @@ function StakingDetailTable() {
 
     return (
         <div className='p-3'>
-            <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 m-2">Nuevo Detalle
-                <Link to={`/stakingDetailFormPage/${items[0].staking.id}`} >Ver Detalle</Link>
-
-
+            <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 m-2">
+                <Link to={`/StakingsDetail-create/${params.id_staking}`} >Nuevo Detalle</Link>
             </a>
             <div className="p-4 bg-gray-900 flex items-center justify-center">
                 <table className="min-w-full bg-gray-800 text-white rounded-lg shadow-lg overflow-hidden">
@@ -42,8 +40,14 @@ function StakingDetailTable() {
                                 <td className="px-4 py-2">{detail.quantity}</td>
                                 <td className="px-4 py-2">{detail.price}</td>
                                 <td className="px-4 py-2">{detail.quantity_earn}</td>
-                                <td className="px-4 py-2"><a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 m-2">Modificar</a>
-                                    <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Eliminar</a>
+                                <td className="px-4 py-2">
+
+                                    <a class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 m-2">
+                                        <Link to={`/StakingsDetail/${items[0].staking}/${detail.id}`} >Modificar</Link>
+                                    </a>
+                                    <a class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
+                                        <Link to={`/StakingsDetail/${items[0].staking}/${detail.id}`} >Eliminar</Link>
+                                    </a>
                                 </td>
 
                             </tr>

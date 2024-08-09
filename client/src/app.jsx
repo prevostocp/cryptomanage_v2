@@ -8,6 +8,7 @@ import { StakingsPage } from './pages/StakingsPage'
 import { StakingFormPage } from './pages/StakingFormPage'
 import { CoinFormPage } from './pages/CoinFormPage'
 import StakingDetailTable from './components/StakingDetailTable'
+import StakingDetailFormPage from './pages/StakingDetailFormPage'
 import BlockchainFormPage from './pages/BlockchainFormPage'
 import { Navigation } from './components/Navigation'
 import { Toaster } from 'react-hot-toast'
@@ -28,7 +29,9 @@ function App() {
           <Route path='/Stakings/:type' element={<StakingsPage />} />
           <Route path='/Stakings-create' element={<StakingFormPage />} />
           <Route path='/Stakings/:type/:id' element={<StakingFormPage />} />
-          <Route path='/StakingDetail/:details' element={<StakingDetailTable />} />
+          <Route path='/StakingDetail/:id_staking/:details' element={<StakingDetailTable />} />
+          <Route path='/StakingsDetail-create/:id_staking' element={<StakingDetailFormPage />} />
+          <Route path='/StakingsDetail/:id_staking/:id' element={<StakingDetailFormPage />} />
           <Route path='/Blockchains' element={<BlockchainPage />} />
           <Route path='/Blockchains-create' element={<BlockchainFormPage />} />
           <Route path='/Blockchains/:id' element={<BlockchainFormPage />} />

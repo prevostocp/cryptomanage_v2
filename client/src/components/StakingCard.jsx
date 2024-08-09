@@ -14,7 +14,7 @@ export function StakingCard({ staking }) {
             <div className='bg-zinc-800 p-3 rounded-lg '>
 
                 <a class="block mt-4 lg:inline-block lg:mt-0 text-indigo-200 hover:text-white mr-4">
-                    <Link to={`/stakingDetail/${aDetails}`} >Ver Detalle</Link>
+                    <Link to={`/stakingDetail/${staking.id}/${aDetails}`} >Ver Detalle</Link>
                 </a>
 
                 <div className='bg-zinc-700 hover:bg-zinc-600 my-4 rounded-lg cursor-pointer'
